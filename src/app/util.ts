@@ -13,7 +13,7 @@ export const sanitizeProblem = (value: string | string[]) => {
     // replace all whitespace with a single space
     .replace(/\s+/g, " ")
     // replace all non-alphanumeric characters with a single space
-    .replace(/[^a-zA-Z0-9-]/g, " ")
+    .replace(/[^a-zA-Z0-9-']/g, " ")
     // remove leading and trailing whitespace
     .trim()
     // sanitize screaming
