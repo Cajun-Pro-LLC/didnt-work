@@ -12,9 +12,9 @@ export default function New({ searchParams }: { searchParams: SearchParams }) {
 
   const handleSubmit = async (formData: FormData) => {
     'use server';
-    const text = formData.get('text');
-    console.log(text);
-    redirect(`/new?problem=${text}`);
+    const text = formData.get('text') as string || "";
+    const sanitized = sanitizeProblem(text);
+    redirect(`/new?problem=${sanitized}`);
   }
 
   return (
